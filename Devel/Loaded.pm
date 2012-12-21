@@ -3,16 +3,16 @@
 
 package Devel::Loaded;
 
-$VERSION = '1.10';
+$VERSION = '1.21';
 
 BEGIN { %Seen = %INC } 
 
 END { 
 
-    delete $INC{"Loaded.pm"};
+    delete $INC{'Devel/Loaded.pm'};
 
     for my $path (values %INC) {
-	print "$path\n" unless $Seen{$path};
+        print "$path\n" unless $Seen{$path};
     } 
 
 }
@@ -23,7 +23,7 @@ __END__
 
 =head1 NAME
 
-Loaded - Post-execution dump of loaded modules
+Devel::Loaded - Post-execution dump of loaded modules
 
 =head1 SYNOPSIS
 
