@@ -1,0 +1,545 @@
+This is pmtools -- a suite of small programs to help manage modules.
+The names are totally preliminary, and in fact, so is the code.  We follow
+the "keep it small" notion of many tiny tools each doing one thing well,
+eschewing giant megatools with millions of options.
+
+Tom Christiansen
+tchrist@perl.com
+
+
+=========================================================
+
+pmpath - show the module's full path
+
+    $ pmpath Carp
+    /usr/local/devperl/lib/5.00554/Carp.pm
+
+=========================================================
+
+pmvers - get a module version number
+
+    $ pmvers CGI
+    2.46
+
+    $ perl5.00404 -S pmvers CGI
+    2.42
+
+    $ devperl -S pmvers CGI
+    2.46
+
+=========================================================
+
+pmdesc  - get a module description
+
+    $ pmdesc IO::Dir
+    IO::Dir (1.03) - supply object methods for directory handles
+
+=========================================================
+
+pmall  - get all installed modules pmdesc descriptions 
+
+    $ pmall
+    Pod::Html (1.01) - module to convert pod files to HTML
+    Config - access Perl configuration information
+    DB_File (1.61) - Perl5 access to Berkeley DB
+    DynaLoader (1.03) - Dynamically load C libraries into Perl code
+    Fcntl (1.03) - load the C Fcntl.h defines
+    File::Basename (2.6) - split a pathname into pieces
+    (etc)
+
+  This one is a bit crufty.  It takes some options.
+  Check out the source.
+
+=========================================================
+
+pmcheck   - check that Perl is set up correctly for Perl modules
+
+    $ pmcheck
+    '/usr/lib/perl5/site_perl/5.8' is in @INC but does not exist
+
+=========================================================
+
+pmdirs    - print the perl module path, newline separated
+
+    $ pmdirs
+    /home/tchrist/perllib/i686-linux
+    /home/tchrist/perllib
+    /usr/local/devperl/lib/5.00554/i686-linux
+    /usr/local/devperl/lib/5.00554
+    /usr/local/devperl/lib/site_perl/5.00554/i686-linux
+    /usr/local/devperl/lib/site_perl/5.00554
+    .
+
+    $ filsperl -S pmdirs
+    /home/tchrist/perllib
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread
+    /usr/local/filsperl/lib/5.00554
+    /usr/local/filsperl/lib/site_perl/5.00554/i686-linux-thread
+    /usr/local/filsperl/lib/site_perl/5.00554
+    .
+
+=========================================================
+
+plxload - show what files a given program loads at compile time
+
+    $ plxload perldoc
+    /usr/local/devperl/lib/5.00554/Exporter.pm
+    /usr/local/devperl/lib/5.00554/strict.pm
+    /usr/local/devperl/lib/5.00554/vars.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/Config.pm
+    /usr/local/devperl/lib/5.00554/Getopt/Std.pm
+
+    $ plxload /usr/src/perl5.005_54/installhtml
+    /usr/local/devperl/lib/5.00554/Carp.pm
+    /usr/local/devperl/lib/5.00554/Exporter.pm
+    /usr/local/devperl/lib/5.00554/auto/Getopt/Long/autosplit.ix
+    /usr/local/devperl/lib/5.00554/strict.pm
+    /usr/local/devperl/lib/5.00554/vars.pm
+    /usr/local/devperl/lib/5.00554/Pod/Functions.pm
+    /usr/local/devperl/lib/5.00554/Getopt/Long.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/Config.pm
+    /usr/local/devperl/lib/5.00554/lib.pm
+    /home/tchrist/perllib/Pod/Html.pm
+    /usr/local/devperl/lib/5.00554/Cwd.pm
+    /usr/local/devperl/lib/5.00554/AutoLoader.pm
+
+=========================================================
+
+pmload - show what files a given module loads at compile time
+
+    $ pmload IO::Handle
+    /usr/local/devperl/lib/5.00554/Exporter.pm
+    /usr/local/devperl/lib/5.00554/Carp.pm
+    /usr/local/devperl/lib/5.00554/strict.pm
+    /usr/local/devperl/lib/5.00554/vars.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/DynaLoader.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/IO/Handle.pm
+    /usr/local/devperl/lib/5.00554/Symbol.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/IO/File.pm
+    /usr/local/devperl/lib/5.00554/SelectSaver.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/Fcntl.pm
+    /usr/local/devperl/lib/5.00554/AutoLoader.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/IO.pm
+    /usr/local/devperl/lib/5.00554/i686-linux/IO/Seekable.pm
+
+    $ cat `pmload IO::File` | wc -l
+       3131
+
+    $ pmload Tk
+    /usr/lib/perl5/site_perl/Tk/Pretty.pm
+    /usr/lib/perl5/Symbol.pm
+    /usr/lib/perl5/site_perl/Tk/Frame.pm
+    /usr/lib/perl5/site_perl/Tk/Toplevel.pm
+    /usr/lib/perl5/strict.pm
+    /usr/lib/perl5/Exporter.pm
+    /usr/lib/perl5/vars.pm
+    /usr/lib/perl5/site_perl/auto/Tk/Wm/autosplit.ix
+    /usr/lib/perl5/site_perl/auto/Tk/Widget/autosplit.ix
+    /usr/lib/perl5/site_perl/Tk.pm
+    /usr/lib/perl5/i386-linux/5.00404/DynaLoader.pm
+    /usr/lib/perl5/site_perl/auto/Tk/Frame/autosplit.ix
+    /usr/lib/perl5/site_perl/auto/Tk/Toplevel/autosplit.ix
+    /usr/lib/perl5/Carp.pm
+    /usr/lib/perl5/site_perl/auto/Tk/autosplit.ix
+    /usr/lib/perl5/site_perl/Tk/CmdLine.pm
+    /usr/lib/perl5/site_perl/Tk/MainWindow.pm
+    /usr/lib/perl5/site_perl/Tk/Submethods.pm
+    /usr/lib/perl5/site_perl/Tk/Configure.pm
+    /usr/lib/perl5/AutoLoader.pm
+    /usr/lib/perl5/site_perl/Tk/Derived.pm
+    /usr/lib/perl5/site_perl/Tk/Image.pm
+    /usr/lib/perl5/site_perl/Tk/Wm.pm
+    /usr/lib/perl5/site_perl/Tk/Widget.pm
+
+=========================================================
+
+pmexp - show a module's exports
+
+    $ pmexp Text::ParseWords
+    Text::ParseWords automatically exports shellwords, quotewords, nested_quotewords, and parse_line
+    Text::ParseWords optionally exports old_shellwords
+
+    $ pmexp Text::Wrap
+    Text::Wrap automatically exports wrap and fill
+    Text::Wrap optionally exports $columns, $break, and $huge
+
+    $ pmexp Fcntl
+    Fcntl automatically exports FD_CLOEXEC, F_DUPFD, F_EXLCK, F_GETFD, F_GETFL, F_GETLK, F_GETLK64, F_GETOWN, F_POSIX, F_RDLCK, F_SETFD, F_SETFL, F_SETLK, F_SETLK64, F_SETLKW, F_SETLKW64, F_SETOWN, F_SHLCK, F_UNLCK, F_WRLCK, O_ACCMODE, O_APPEND, O_ASYNC, O_BINARY, O_CREAT, O_DEFER, O_DSYNC, O_EXCL, O_EXLOCK, O_LARGEFILE, O_NDELAY, O_NOCTTY, O_NONBLOCK, O_RDONLY, O_RDWR, O_RSYNC, O_SHLOCK, O_SYNC, O_TEXT, O_TRUNC, and O_WRONLY
+    Fcntl optionally exports FAPPEND, FASYNC, FCREAT, FDEFER, FEXCL, FNDELAY, FNONBLOCK, FSYNC, FTRUNC, LOCK_EX, LOCK_NB, LOCK_SH, and LOCK_UN
+    Fcntl export tag `Fcompat' includes FAPPEND, FASYNC, FCREAT, FDEFER, FEXCL, FNDELAY, FNONBLOCK, FSYNC, and FTRUNC
+    Fcntl export tag `flock' includes LOCK_SH, LOCK_EX, LOCK_NB, and LOCK_UN
+
+=========================================================
+
+pminst  - find what's installed
+
+    $ pminst
+    (lists all installed modules)
+
+    $ pminst Carp
+    CGI::Carp
+    Carp
+
+    $ pminst ^IO::
+    IO::Socket::INET
+    IO::Socket::UNIX
+    IO::Select
+    IO::Socket
+    IO::Poll
+    IO::Handle
+    IO::Pipe
+    IO::Seekable
+    IO::Dir
+    IO::File
+
+    $ pminst '(?i)io'
+    IO::Socket::INET
+    IO::Socket::UNIX
+    IO::Select
+    IO::Socket
+    IO::Poll
+    IO::Handle
+    IO::Pipe
+    IO::Seekable
+    IO::Dir
+    IO::File
+    IO
+    Pod::Functions
+
+  The -s flag provides output with the directory separated
+  by a space:
+
+    $ pminst -s | sort +1
+    (lists all modules, sorted by name, but with where they 
+     came from)
+
+    $ perl5.00404 -S pminst -s IO
+    /usr/lib/perl5/i386-linux/5.00404 IO::File
+    /usr/lib/perl5/i386-linux/5.00404 IO::Handle
+    /usr/lib/perl5/i386-linux/5.00404 IO::Pipe
+    /usr/lib/perl5/i386-linux/5.00404 IO::Seekable
+    /usr/lib/perl5/i386-linux/5.00404 IO::Select
+    /usr/lib/perl5/i386-linux/5.00404 IO::Socket
+    /usr/lib/perl5/i386-linux/5.00404 IO
+    /usr/lib/perl5/site_perl LWP::IO
+    /usr/lib/perl5/site_perl LWP::TkIO
+    /usr/lib/perl5/site_perl Tk::HTML::IO
+    /usr/lib/perl5/site_perl Tk::IO
+    /usr/lib/perl5/site_perl IO::Stringy
+    /usr/lib/perl5/site_perl IO::Wrap
+    /usr/lib/perl5/site_perl IO::ScalarArray
+    /usr/lib/perl5/site_perl IO::Scalar
+    /usr/lib/perl5/site_perl IO::Lines
+    /usr/lib/perl5/site_perl IO::WrapTie
+    /usr/lib/perl5/site_perl IO::AtomicFile
+
+  The -l flag gives full paths:
+
+    $ filsperl -S pminst -l Thread
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread/Queue.pm
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread/Semaphore.pm
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread/Signal.pm
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread/Specific.pm
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread.pm
+
+
+=========================================================
+
+pmeth - list a class's methods, recursively
+
+    $ pmeth IO::Socket
+    AF_INET
+    AF_UNIX
+    INADDR_ANY
+    INADDR_BROADCAST
+    INADDR_LOOPBACK
+    INADDR_NONE
+    SOCK_DGRAM
+    SOCK_RAW
+    SOCK_STREAM
+    accept
+    bind
+    carp
+    confess
+    configure
+    connect
+    connected
+    croak
+    getsockopt
+    import
+    inet_aton
+    inet_ntoa
+    listen
+    new
+    pack_sockaddr_in
+    pack_sockaddr_un
+    peername
+    protocol
+    recv
+    register_domain
+    send
+    setsockopt
+    shutdown
+    sockaddr_in
+    sockaddr_un
+    sockdomain
+    socket
+    socketpair
+    sockname
+    sockopt
+    socktype
+    timeout
+    unpack_sockaddr_in
+    unpack_sockaddr_un
+    DESTROY via IO::Handle
+    SEEK_CUR via IO::Handle
+    SEEK_END via IO::Handle
+    SEEK_SET via IO::Handle
+    _IOFBF via IO::Handle
+    _IOLBF via IO::Handle
+    _IONBF via IO::Handle
+    _open_mode_string via IO::Handle
+    autoflush via IO::Handle
+    blocking via IO::Handle
+    [overridden] carp via IO::Handle
+    clearerr via IO::Handle
+    close via IO::Handle
+    [overridden] confess via IO::Handle
+    constant via IO::Handle
+    [overridden] croak via IO::Handle
+    eof via IO::Handle
+    error via IO::Handle
+    fcntl via IO::Handle
+    fdopen via IO::Handle
+    fileno via IO::Handle
+    flush via IO::Handle
+    format_formfeed via IO::Handle
+    format_line_break_characters via IO::Handle
+    format_lines_left via IO::Handle
+    format_lines_per_page via IO::Handle
+    format_name via IO::Handle
+    format_page_number via IO::Handle
+    format_top_name via IO::Handle
+    format_write via IO::Handle
+    formline via IO::Handle
+    gensym via IO::Handle
+    getc via IO::Handle
+    getline via IO::Handle
+    getlines via IO::Handle
+    gets via IO::Handle
+    input_line_number via IO::Handle
+    input_record_separator via IO::Handle
+    ioctl via IO::Handle
+    [overridden] new via IO::Handle
+    new_from_fd via IO::Handle
+    opened via IO::Handle
+    output_field_separator via IO::Handle
+    output_record_separator via IO::Handle
+    print via IO::Handle
+    printf via IO::Handle
+    printflush via IO::Handle
+    qualify via IO::Handle
+    qualify_to_ref via IO::Handle
+    read via IO::Handle
+    setbuf via IO::Handle
+    setvbuf via IO::Handle
+    stat via IO::Handle
+    sync via IO::Handle
+    sysread via IO::Handle
+    syswrite via IO::Handle
+    truncate via IO::Handle
+    ungensym via IO::Handle
+    ungetc via IO::Handle
+    untaint via IO::Handle
+    write via IO::Handle
+    _push_tags via Exporter via IO::Handle
+    export via Exporter via IO::Handle
+    export_fail via Exporter via IO::Handle
+    export_ok_tags via Exporter via IO::Handle
+    export_tags via Exporter via IO::Handle
+    export_to_level via Exporter via IO::Handle
+    [overridden] import via Exporter via IO::Handle
+    require_version via Exporter via IO::Handle
+    VERSION via UNIVERSAL
+    can via UNIVERSAL
+    [overridden] import via UNIVERSAL
+    isa via UNIVERSAL
+
+You might want to send that through grep or grep -v looking
+for "via" or "overridden".
+
+=========================================================
+
+pmls  - long list the module path
+
+    $ pmls CGI
+    -r--r--r--   1 root     root       190901 Dec  6 03:19
+		/usr/local/devperl/lib/5.00554/CGI.pm
+
+This is mostly here for people too lazy to type
+    $ ls -l `pmpath CGI` 
+
+=========================================================
+
+pmcat  - cat the module source through your pager
+
+    $ pmcat CGI
+
+This is mostly here for people too lazy to type
+    $ more `pmpath CGI` 
+
+=========================================================
+
+pman - show the module's pod docs
+
+    $ pman CGI
+    $ pman Curses
+
+This is mostly here for people too lazy to type
+    $ pod2text `pmpath CGI` | more
+
+=========================================================
+
+pmfunc - show a function source code from a module
+
+    $ pmfunc Cwd::getcwd
+    sub getcwd
+    {
+	abs_path('.');
+    }
+
+This is mostly here for people who are too lazy to type
+
+    sed '/^sub getcwd/,/}/p' `pmpath Cwd`
+or
+    perl -ne 'print if /^sub\s+getcwd\b/ .. /}/' `pmpath Cwd`
+
+=========================================================
+
+podgrep - grep in pods of a file
+
+  Flags:
+      -i means case insensitive match
+      -p means page output 
+      -f means format output 
+      -h means check for matches in pod =head and =item headers alone,
+         and to keep printing podagraphs until the next header is found.
+
+    $ podgrep mail `pmpath CGI`
+    (prints out podagraphs from the CGI.pm manpage that mention mail)
+
+    $ podgrep -i destructor `sitepods`
+    (prints out podagraphs that mention destructors in the 
+     site-installed pods)
+
+    $ podgrep -i 'type.?glob' `stdpods`
+
+    (prints out podagraphs that mention typeglob in the
+     standard pods)
+
+    $ podgrep -hpfi "lock" `faqpods`
+
+    (prints out all podagraphs with "lock" in the headers
+    case-insensitively, then then formats these with pod2text, then
+    shows them in the pager with matches high-lighted)
+
+    $ podgrep -fh seek `podpath perlfunc`
+    (prints out and formats podagraphs from the standard perlfunc manpage
+    whose headers or items contain "seek".)
+
+=========================================================
+
+pfcat - show pods from perlfunc
+
+(uses podgrep, uses those options)
+
+    $ pfcat seek
+
+is like 
+
+    $ podgrep -h seek `podpath perlfunc`
+
+Whereas
+
+    $ pfcat -pf seek
+
+is like
+
+    $ podgrep -pfh seek `podpath perlfunc`
+
+which is like
+
+    $ podgrep -h seek `podpath perlfunc` | podtext | $PAGER +/seek
+
+
+=========================================================
+
+podtoc - list table of contents of a podpage
+
+    $ podtoc `pmpath CGI`
+     NAME
+     SYNOPSIS
+     ABSTRACT
+     DESCRIPTION
+	 PROGRAMMING STYLE
+	 CALLING CGI.PM ROUTINES
+	 *  1. Use another name for the argument, if one is available.  For
+	    example, -value is an alias for -values.
+	 *  2. Change the capitalization, e.g. -Values
+    (etc)
+
+=========================================================
+
+podpath - show full path of pod file
+
+(like pmpath, but works on standard manpages, too)
+
+    $ podpath Cwd
+    /usr/local/devperl/lib/5.00554/Cwd.pm
+
+    $ devperl -S podpath perlfunc
+    /usr/local/devperl/lib/5.00554/pod/perlfunc.pod
+
+    $ oldperl -S podpath IO::Handle
+    /usr/lib/perl5/i386-linux/5.00404/IO/Handle.pm
+
+    $ filsperl -S podpath Thread
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread.pm
+
+
+=========================================================
+
+pods - list all standard pods and module pods
+
+    $ pods
+
+=========================================================
+
+sitepods - list only pods in site_perl directories
+
+    $ sitepods
+    /usr/local/devperl/lib/site_perl/5.00554/i686-linux/XML/Parser/Expat.pm
+    /usr/local/devperl/lib/site_perl/5.00554/i686-linux/XML/Parser.pm
+
+
+=========================================================
+
+basepods - list only normal "man-page" style pods
+
+    $ basepods | grep delt
+    /usr/local/devperl/lib/5.00554/pod/perl5004delta.pod
+    /usr/local/devperl/lib/5.00554/pod/perl5005delta.pod
+    /usr/local/devperl/lib/5.00554/pod/perldelta.pod
+
+
+=========================================================
+
+faqpods - list only faq pods
+
+=========================================================
+
+modpods - all module pods, including site_perl ones
+
+=========================================================
+
+stdpods - list standard pods, not site_perl ones

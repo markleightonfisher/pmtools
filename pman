@@ -1,0 +1,75 @@
+#!/usr/bin/env perl
+# pman -- show a module's man page
+# tchrist@perl.com
+
+BEGIN { $^W = 1 }
+BEGIN { die "usage: $0 module ...\n" unless @ARGV }
+
+use FindBin qw($Bin);
+
+$errors = 0;
+
+unless ($pager = $ENV{PAGER}) {
+    require Config;
+    $pager = $Config::Config{"pager"} || "more";
+} 
+
+for $module (@ARGV) { 
+    my $path =  `$Bin/pmpath $module`;
+    if ($?) {
+	$errors++;
+	next;
+    } 
+    chomp $path;
+    system "pod2text $path | $pager";
+    $errors += ($? != 1);
+}
+
+exit($errors != 0);
+
+__END__
+
+=head1 NAME
+
+pman - show a module's man page
+
+=head1 DESCRIPTION
+
+Send a module's pod through pod2text and your pager.
+
+This is mostly here for people too lazy to type
+
+    $ pod2text `pmpath CGI` | $PAGER
+
+=head1 EXAMPLES
+
+    $ pman CGI
+    $ pman Curses
+
+Or running under different versions of Perl: 
+
+    $ oldperl -S pman CGI
+    $ filsperl -S pman Threads
+
+=head1 SEE ALSO
+
+pod2text(1), perlpod(1), pod2man(1), pod2html(1).
+
+=head1 AUTHORS and COPYRIGHTS
+
+Copyright (C) 1999 Tom Christiansen.
+
+Copyright (C) 2006-2008 Mark Leighton Fisher.
+
+This is free software; you can redistribute it and/or modify it
+under the terms of either:
+(a) the GNU General Public License as published by the Free
+Software Foundation; either version 1, or (at your option) any
+later version, or
+(b) the Perl "Artistic License".
+(This is the Perl 5 licensing scheme.)
+
+Please note this is a change from the
+original pmtools-1.00 (still available on CPAN),
+as pmtools-1.00 were licensed only under the
+Perl "Artistic License".

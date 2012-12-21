@@ -1,0 +1,8 @@
+In no particular order, here are some of my goals for pmtools:
+
+* Add some tests.
+* Fix plxload, which does not work for me under Cygwin.
+* Investigate CPAN module manipulation packages for use
+  in additional pmtools.
+* Add the "pmtools" command sent me by Matthew Persico.
+* Solicit other ideas from Perl community members.

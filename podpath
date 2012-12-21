@@ -1,0 +1,63 @@
+#!/usr/bin/env perl
+# podpath - print the path to the pod
+
+for (@ARGV) {
+    if ( /^perl/ ) {
+	system("$^X -S stdpods | grep $_");
+    } else {
+	system("$^X -S pmpath $_");
+    } 
+} 
+
+__END__
+
+=head1 NAME
+
+podpath - print the path to the pod
+
+=head1 DESCRIPTION
+
+This is just a front-end that calls either I<stdpods>
+or I<pmpath> depending on what it looks like.  It works
+on both regular the standard podpages and the module ones.
+
+=head1 EXAMPLES
+
+    $ podpath Cwd
+    /usr/local/devperl/lib/5.00554/Cwd.pm
+
+It works with alternate installations, too:
+
+    $ devperl -S podpath perlfunc
+    /usr/local/devperl/lib/5.00554/pod/perlfunc.pod
+
+    $ oldperl -S podpath IO::Handle
+    /usr/lib/perl5/i386-linux/5.00404/IO/Handle.pm
+
+    $ filsperl -S podpath Thread
+    /usr/local/filsperl/lib/5.00554/i686-linux-thread/Thread.pm
+
+=head1 SEE ALSO
+
+stdpods(1),
+pmpath(1),
+perlmodlib(1).
+
+=head1 AUTHORS and COPYRIGHTS
+
+Copyright (C) 1999 Tom Christiansen.
+
+Copyright (C) 2006-2008 Mark Leighton Fisher.
+
+This is free software; you can redistribute it and/or modify it
+under the terms of either:
+(a) the GNU General Public License as published by the Free
+Software Foundation; either version 1, or (at your option) any
+later version, or
+(b) the Perl "Artistic License".
+(This is the Perl 5 licensing scheme.)
+
+Please note this is a change from the
+original pmtools-1.00 (still available on CPAN),
+as pmtools-1.00 were licensed only under the
+Perl "Artistic License".
