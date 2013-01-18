@@ -1,3 +1,18 @@
+v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
+  - Moved to Git for source control.
+  - Added the GitHub repo
+    https://github.com/markleightonfisher/pmtools.
+  - Fixed Devel/Loaded.pm so it is not added to the
+    output. Thanks to NEILB@cpan.org for spotting this
+    bug (a modern Perls bug).
+  - Patched pmeth to flag Perl constants as such (thanks
+    to jpierce@cpan.org for the patch). XS constants
+    are not yet marked (some C-fu needs to be applied).
+  - Patched basepods to use 'pods' as the directory for
+    the base PODs (modern Perls use 'pods'). Alas, this
+    appears to be inspired by a CPANgnome, as there was
+    no Requestor on the ticket. :(
+
 v1.20  2012-12-07 15:25:50 EST  Mark Leighton Fisher
   - Patched pminst so only unique package names are printed.
     Thanks to Matthew Persico for the patch. (Honorable

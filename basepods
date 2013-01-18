@@ -2,9 +2,12 @@
 # basepods - print out the standard perl*.pod manpages pod paths
 
 use Config;
-$lib = "$Config{'installprivlib'}/pod";
+
+$lib = "$Config{'installprivlib'}/pods";
+$lib = "$Config{'installprivlib'}/pod" unless -d $lib;
+
 opendir(LIB, $lib) || die "$0: can't opendir $lib: $!\n";
-while ($_ = readdir(LIB)) { 
+while ($_ = readdir(LIB)) {
     print "$lib/$_\n" if /\.pod$/;
 } 
 
@@ -46,8 +49,7 @@ faqpods(1), modpods(1), pods(1), sitepod(1), podpath(1), and stdpod(1).
 =head1 AUTHORS and COPYRIGHTS
 
 Copyright (C) 1999 Tom Christiansen.
-
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

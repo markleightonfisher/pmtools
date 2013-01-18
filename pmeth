@@ -24,6 +24,8 @@ sub show_methods {
 	return;
     } 
     foreach $name ( sort keys %{ $module . "::" } ) { 
+	print '[constant] ' if declared($module . "::" . $name);
+
 	if (defined &{ $module . "::" . $name } ) {
 	    print "[overridden] " if $got_def{$name}++;
 	    if (@indirect) { 
@@ -39,6 +41,15 @@ sub show_methods {
 	}
     }
 } 
+
+sub declared ($) {
+    use constant 1.01;              # don't omit this!
+    my $name = shift;
+    $name =~ s/^::/main::/;
+    my $pkg = caller;
+    my $full_name = $name =~ /::/ ? $name : "${pkg}::$name";
+    $constant::declared{$full_name};
+}
 
 exit ($errors != 0);
 
@@ -72,6 +83,9 @@ derived-class method by the same name (but accessible via SUPER::)
 is indicated by a leading "[overridden]" before it:
 
     [overridden] new via IO::Handle
+
+Constants declared via L<constant> have a leading "[constant]" added
+to the output, but XS C<define>'s are not yet so flagged.
 
 =head1 EXAMPLES
 

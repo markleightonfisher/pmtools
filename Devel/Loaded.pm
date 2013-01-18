@@ -1,19 +1,38 @@
 # Loaded.pm -- show what files were loaded 
+# markleightonfisher@gmail.com
 # tchrist@perl.com
+
+use File::Spec;
 
 package Devel::Loaded;
 
-$VERSION = '1.10';
+$VERSION = '1.30';
 
 BEGIN { %Seen = %INC } 
 
 END { 
+    # get last part of Devel::Loaded path; handle File::Spec->canonpath() removing '.' from '.pm'
+    my $devel_loaded = File::Spec->catfile('Devel', 'Loaded.pm');
+    if ($devel_loaded =~ m/Loadedpm$/) {
+        $devel_loaded =~ s/Loadedpm$/Loaded.pm/;
+    }
 
-    delete $INC{"Loaded.pm"};
+    # delete the matching absolute path from %INC
+    # NOTE: this will fail if you also have directories like ".../MyOwnDevel/Loaded.pm"
+    my $inc_devel_loaded = "";
+    foreach $path (keys(%INC)) {
+       if ($path =~ m/$devel_loaded$/) {
+            $inc_devel_loaded = $path;
+            last;
+        } 
+    }
+    if ($inc_devel_loaded ne "") {
+        #delete $INC{$inc_devel_loaded};
+    }
 
     for my $path (values %INC) {
-	print "$path\n" unless $Seen{$path};
-    } 
+       print "$path\n" unless $Seen{$path};
+    }
 
 }
 
@@ -63,7 +82,7 @@ this technique.
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:
