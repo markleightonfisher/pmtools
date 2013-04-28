@@ -1,6 +1,6 @@
 use ExtUtils::MakeMaker;
 WriteMakefile(
-	VERSION => '1.00',
+	VERSION => '1.30',
 	NAME => "pmtools",
         DISTNAME => "pmtools",
 	EXE_FILES => [  basepods, faqpods, modpods, pfcat, plxload,
