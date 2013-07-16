@@ -1,3 +1,9 @@
+1.31 2013-
+  - Improved the abstract, including correcting module name
+  - Added link to review of similar modules in SEE ALSO
+  - Added repository and license information to Makefile.PL,
+    so they'll appear in metadata
+
 v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
   - Moved to Git for source control.
   - Added the GitHub repo

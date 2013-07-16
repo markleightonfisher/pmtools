@@ -42,11 +42,11 @@ __END__
 
 =head1 NAME
 
-Loaded - Post-execution dump of loaded modules
+Devel::Loaded - Post-execution display of the modules loaded by your code
 
 =head1 SYNOPSIS
 
-    perl -MDevel::Loaded -Sc programname 2>/dev/null
+  perl -MDevel::Loaded [-c] programname 2>/dev/null
 
 =head1 DESCRIPTION
 
@@ -60,23 +60,26 @@ them all.
 
 This is compile-time only:
 
-    $ perl -MDevel::Loaded -S -c perldoc 2>/dev/null
-    /usr/local/devperl/lib/5.00554/Exporter.pm
-    /usr/local/devperl/lib/5.00554/strict.pm
-    /usr/local/devperl/lib/5.00554/vars.pm
-    /usr/local/devperl/lib/5.00554/i686-linux/Config.pm
-    /usr/local/devperl/lib/5.00554/Getopt/Std.pm
+  $ perl -MDevel::Loaded -S -c perldoc 2>/dev/null
+  /usr/local/devperl/lib/5.00554/Exporter.pm
+  /usr/local/devperl/lib/5.00554/strict.pm
+  /usr/local/devperl/lib/5.00554/vars.pm
+  /usr/local/devperl/lib/5.00554/i686-linux/Config.pm
+  /usr/local/devperl/lib/5.00554/Getopt/Std.pm
 
 This will also catch run-time loads:
 
-    #!/usr/bin/perl
-    use Devel::Loaded;
-    ...
+  #!/usr/bin/perl
+  use Devel::Loaded;
+  ...
 
 =head1 SEE ALSO
 
 The I<plxload> and the I<pmload> programs, which use
 this technique.
+
+Neil Bowers has written a L<review|http://neilb.org/reviews/dependencies.html> of
+Perl modules for getting dependency information (26 of them at the time of writing).
 
 =head1 AUTHORS and COPYRIGHTS
 
