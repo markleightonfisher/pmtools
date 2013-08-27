@@ -2,6 +2,9 @@
 # markleightonfisher@gmail.com
 # tchrist@perl.com
 
+# ABSTRACT: pmtools - Perl Module Tools
+# VERSION: 1.30
+
 use File::Spec;
 
 package Devel::Loaded;
