@@ -2,7 +2,25 @@
 # podgrep -- grep in pod sections only
 # tchrist@perl.com
 
+# ------ pragmas
+use strict;
+use warnings;
 use Getopt::Std  qw(getopts);
+
+# ------ define variables
+my $chunk        = undef;	# x
+my $file         = undef;	# x
+my $inmatch      = undef;	# x
+my $inpod        = undef;	# x
+my $only_header  = undef;	# x
+my $opt_f        = undef;	# x
+my $opt_h        = undef;	# x
+my $opt_i        = undef;	# x
+my $opt_p        = undef;	# x
+my $orig_pattern = undef;	# x
+my $pager        = undef;	# x
+my $pattern      = undef;	# x
+
 
 getopts("fhpi") 
   || die "usage: $0 [-i] [-f] [-h] [-p] pattern [podfiles ...]";
