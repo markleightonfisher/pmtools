@@ -2,6 +2,15 @@
 # pmvers -- print out a module's version, if findable
 # tchrist@perl.com
 
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $errors  = 0;	# error count
+my $module  = undef;	# module name
+my $version = undef;	# module version string
+
 BEGIN { $^W = 1 }
 
 $errors = 0;

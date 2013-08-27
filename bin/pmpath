@@ -2,6 +2,16 @@
 # pmpath -- show path to a perl module
 # tchrist@perl.com
 
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $errors    = 0;	# error count
+my $fullpath  = undef;	# full path
+my $module    = undef;	# module name
+my $shortpath = undef;	# short path
+
 BEGIN { $^W = 1 }
 
 $errors = 0;

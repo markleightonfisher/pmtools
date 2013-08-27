@@ -2,8 +2,17 @@
 # pmload -- show what files a module loads
 # tchrist@perl.com
 
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $module = undef;	# module name
+my %seen = ();		# list of files we've seen before
+
 BEGIN { $^W = 1 }
-BEGIN { die "usage: $0 module\n" unless @ARGV == 1 }
+
+die "usage: $0 module\n" unless @ARGV == 1;
 
 %seen = %INC;
 
@@ -15,7 +24,7 @@ if ($@) {
     die "$0: $@";
 } 
 
-for $path (values %INC) {
+for my $path (values %INC) {
     print "$path\n" unless $seen{$path};
 } 
 
@@ -114,7 +123,7 @@ Devel::Loaded, plxload(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:
