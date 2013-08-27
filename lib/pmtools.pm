@@ -1,3 +1,8 @@
+package pmtools;
+
+# ABSTRACT: pmtools - Perl Module Tools
+# VERSION 1.30
+
 # ------ From Tom Christiansen's original README file for pmtools:
 # This is pmtools -- a suite of small programs to help manage modules.
 # The names are totally preliminary, and in fact, so is the code.  We follow
@@ -23,7 +28,7 @@ sitepods
 =head1 DESCRIPTION
 
 Perl Modules Tools (pmtools) is a suite of tools designed
-originally by Tom Christiansen
+originally by Tom Christiansen.
 
 For each module name given as an argument, produces its full path on
 the standard output, one per line.
@@ -49,9 +54,11 @@ pmcat(1).
 
 =head1 AUTHORS and COPYRIGHTS
 
-opyright (C) 1999 Tom Christiansen.
+Copyright (C) 1999 Tom Christiansen.
 
 Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:
