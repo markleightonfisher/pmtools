@@ -4,11 +4,10 @@
 # ------ pragmas
 use strict;
 use warnings;
+use Config;
 
 # ------ define variable
 my $lib = undef;	# standard POD library directory
-
-use Config;
 
 $lib = "$Config{'installprivlib'}/pods";
 $lib = "$Config{'installprivlib'}/pod" unless -d $lib;
