@@ -1,5 +1,11 @@
 package pmtools;
 
+use strict;
+use warnings;
+package pmtools;
+
+1;
+
 # ABSTRACT: pmtools - Perl Module Tools
 # VERSION 1.30
 
@@ -72,9 +78,3 @@ Please note this is a change from the
 original pmtools-1.00 (still available on CPAN),
 as pmtools-1.00 were licensed only under the
 Perl "Artistic License".
-
-use strict;
-use warnings;
-package pmtools;
-
-1;
