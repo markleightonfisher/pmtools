@@ -6,3 +6,5 @@ In no particular order, here are some of my goals for pmtools:
   in additional pmtools.
 * Add the "pmtools" command sent me by Matthew Persico.
 * Solicit other ideas from Perl community members.
+* Fix podgrep -i so it actually works again.
+* Fix pmfunc so it actually works again.
