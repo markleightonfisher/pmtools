@@ -1,6 +1,16 @@
 #!/usr/bin/env perl
 # pmfunc -- show a function 
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $errors   = 0;	# error count
+my $file     = undef;	# module file path
+my $function = undef;	# function name
+my $module   = undef;	# module name
+my $ok       = undef;	# OK count
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module ...\n" unless @ARGV }
@@ -9,8 +19,8 @@ use FindBin qw($Bin);
 
 $errors = 0;
 
-for $arg (@ARGV) { 
-    my($module, $function) = $arg =~ /(\w.*)::(\w+)$/;
+for my $arg (@ARGV) { 
+    ($module, $function) = $arg =~ /(\w.*)::(\w+)$/;
     $file = `$^X -S $Bin/pmpath $module`;
     if ($?) {
 	$errors++;
@@ -69,7 +79,9 @@ or
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

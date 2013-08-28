@@ -4,6 +4,9 @@
 # this is a perl program not a shell script
 # so that we can use the correct perl 
 
+use strict;
+use warnings;
+
 system $^X, "-S", "stdpods";
 system $^X, "-S", "pminst", "-l";
 
@@ -26,7 +29,9 @@ faqpods(1), modpods(1), sitepods(1), podpath(1), pminst(1), and stdpod(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

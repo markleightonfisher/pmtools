@@ -1,6 +1,15 @@
 #!/usr/bin/env perl
 # pmeth -- show a class's methods
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $ancestor = undef;	# ancestor
+my $errors   = 0;	# error count
+my %got_def  = ();	# got definition already
+my $name     = undef;	# symbol name
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module\n" unless @ARGV == 1 }
@@ -23,7 +32,9 @@ sub show_methods {
 	$errors++;
 	return;
     } 
+no strict 'refs';
     foreach $name ( sort keys %{ $module . "::" } ) { 
+use strict 'refs';
 	print '[constant] ' if declared($module . "::" . $name);
 
 	if (defined &{ $module . "::" . $name } ) {
@@ -224,7 +235,9 @@ perltoot(1), perlobj(1)
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

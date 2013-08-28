@@ -1,6 +1,4 @@
 # Loaded.pm -- show what files were loaded 
-# markleightonfisher@gmail.com
-# tchrist@perl.com
 
 # ABSTRACT: pmtools - Perl Module Tools
 # VERSION: 1.30
@@ -86,6 +84,8 @@ this technique.
 Copyright (C) 1999 Tom Christiansen.
 
 Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

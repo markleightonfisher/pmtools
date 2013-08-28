@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 # pmload -- show what files a module loads
-# tchrist@perl.com
 
 # ------ pragmas
 use strict;
@@ -124,6 +123,8 @@ Devel::Loaded, plxload(1).
 Copyright (C) 1999 Tom Christiansen.
 
 Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

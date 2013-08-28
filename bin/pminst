@@ -1,6 +1,14 @@
 #!/usr/bin/env perl
 # pminst -- find modules whose names match this pattern
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $pattern = undef;	# module name pattern
+our $startdir = undef;	# starting directory
+my $tmpname  = undef;	# temp version of full module name
 
 BEGIN { $^W = 1 }
 
@@ -155,7 +163,9 @@ the full pathname.  The B<-s> flag will separate the base directory from
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

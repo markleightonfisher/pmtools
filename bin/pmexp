@@ -1,6 +1,16 @@
 #!/usr/bin/env perl
 # pmexp -- show a module's exports
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $errors   = 0;	# error count
+my @list     = ();	# list of module exports
+my $module   = undef;	# module name
+my %table    = ();	# module export tags
+my $tag      = undef;	# module export tag
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module ...\n" unless @ARGV }
@@ -16,7 +26,9 @@ for $module (@ARGV) {
         next;
     } 
 
+no strict 'refs';
     if (@list = @{ $module . "::EXPORT" } ) { 
+use strict 'refs';
 	print "$module automatically exports ",
 	    commify_series(@list), "\n";
     }
@@ -84,7 +96,9 @@ pmeth(1), perlmod(1), Exporter(3).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

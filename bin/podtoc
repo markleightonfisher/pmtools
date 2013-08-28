@@ -1,6 +1,12 @@
 #!/usr/bin/env perl
 # podtoc -- show outline of pods
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $inpod = undef;
 
 $/ = '';
 
@@ -66,7 +72,9 @@ pod2man(1), perlpod(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

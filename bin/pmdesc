@@ -1,6 +1,15 @@
 #!/usr/bin/env perl
 # pmdesc -- show NAME section
-# tchrist@perl.com
+
+# ------ pragmas
+use strict;
+use warnings;
+
+# ------ define variables
+my $errors   = 0;	# error count
+my $fullpath = undef;	# full module path
+my $module   = undef;	# module name
+my $vers     = undef;	# module version
 
 BEGIN { $^W = 1 }
 
@@ -43,6 +52,8 @@ MODULE: for $module (@ARGV) {
 } 
 
 sub getversion {
+    my $module = shift;
+
     my $vers = `$^X -S $Bin/pmvers $module 2>/dev/null`;
     return if $?;
     chomp $vers;
@@ -91,7 +102,9 @@ pmvers(1)
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

@@ -1,6 +1,10 @@
 #!/usr/bin/env perl
 # podpath - print the path to the pod
 
+# ------ pragmas
+use strict;
+use warnings;
+
 for (@ARGV) {
     if ( /^perl/ ) {
 	system("$^X -S stdpods | grep $_");
@@ -47,7 +51,9 @@ perlmodlib(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:

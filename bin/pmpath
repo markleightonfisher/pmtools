@@ -1,6 +1,5 @@
 #!/usr/bin/env perl
 # pmpath -- show path to a perl module
-# tchrist@perl.com
 
 # ------ pragmas
 use strict;
@@ -78,7 +77,9 @@ pmcat(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2008 Mark Leighton Fisher.
+Copyright (C) 2006-2013 Mark Leighton Fisher.
+
+=head1 LICENSE
 
 This is free software; you can redistribute it and/or modify it
 under the terms of either:
