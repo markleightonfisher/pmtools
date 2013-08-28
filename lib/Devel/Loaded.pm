@@ -1,11 +1,12 @@
 # Loaded.pm -- show what files were loaded 
+package Devel::Loaded;
 
 # ABSTRACT: pmtools - Perl Module Tools
 # VERSION: 1.30
 
+use strict;
+use warnings;
 use File::Spec;
-
-package Devel::Loaded;
 
 $VERSION = '1.30';
 
