@@ -4,6 +4,9 @@
 # ------ pragmas
 use strict;
 use warnings;
+use pmtools;
+
+our $VERSION = $pmtools::VERSION;
 
 for (@ARGV) {
     if ( /^perl/ ) {

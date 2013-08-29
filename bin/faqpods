@@ -7,6 +7,9 @@
 # ------ pragmas
 use strict;
 use warnings;
+use pmtools;
+
+our $VERSION = $pmtools::VERSION;
 
 open(PROG, "$^X -S basepods |") || die "can't fork: $!";
 while (<PROG>) {

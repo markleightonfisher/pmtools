@@ -5,6 +5,9 @@
 use strict;
 use warnings;
 use Getopt::Std  qw(getopts);
+use pmtools;
+
+our $VERSION = $pmtools::VERSION;
 
 # ------ define variables
 my $chunk        = undef;	# chunk count

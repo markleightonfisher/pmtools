@@ -4,10 +4,10 @@ use strict;
 use warnings;
 package pmtools;
 
+our $VERSION = '1.30';
+
 1;
 
-# ABSTRACT: pmtools - Perl Module Tools
-# VERSION 1.30
 
 # ------ From Tom Christiansen's original README file for pmtools:
 # This is pmtools -- a suite of small programs to help manage modules.

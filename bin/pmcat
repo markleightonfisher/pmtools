@@ -4,6 +4,9 @@
 # ------ pragmas
 use strict;
 use warnings;
+use pmtools;
+
+our $VERSION = $pmtools::VERSION;
 
 # ------ define variables
 my $pager = undef;	# $ENV{PAGER} - output paging program
