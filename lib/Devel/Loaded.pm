@@ -4,11 +4,17 @@ package Devel::Loaded;
 # ABSTRACT: pmtools - Perl Module Tools
 # VERSION: 1.30
 
+# ------ pragmas
 use strict;
 use warnings;
 use File::Spec;
+use pmtools;
 
-$VERSION = '1.30';
+our $VERSION = $pmtools::VERSION;
+
+# ----- define variable
+my $path  = undef;	# current module path
+our %Seen = ();		# track whether we've seen this module before
 
 BEGIN { %Seen = %INC } 
 
@@ -44,11 +50,11 @@ __END__
 
 =head1 NAME
 
-Loaded - Post-execution dump of loaded modules
+Devel::Loaded - Post-execution dump of loaded modules
 
 =head1 SYNOPSIS
 
-    perl -MDevel::Loaded -Sc programname 2>/dev/null
+    perl -MDevel::Loaded programname 2>/dev/null
 
 =head1 DESCRIPTION
 
@@ -62,7 +68,7 @@ them all.
 
 This is compile-time only:
 
-    $ perl -MDevel::Loaded -S -c perldoc 2>/dev/null
+    $ perl -MDevel::Loaded perldoc 2>/dev/null
     /usr/local/devperl/lib/5.00554/Exporter.pm
     /usr/local/devperl/lib/5.00554/strict.pm
     /usr/local/devperl/lib/5.00554/vars.pm
@@ -79,6 +85,9 @@ This will also catch run-time loads:
 
 The I<plxload> and the I<pmload> programs, which use
 this technique.
+
+Neil Bowers has written a L<review|http://neilb.org/reviews/dependencies.html> of
+Perl modules for getting dependency information (26 of them at the time of writing). 
 
 =head1 AUTHORS and COPYRIGHTS
 
