@@ -1,3 +1,40 @@
+v1.40  2013-09-04 16:53:36 EST  Mark Leighton Fisher
+  - This is the "Kwalitee" release of pmtools! All of the
+    Test::Kwalitee and Test::Kwalitee::Extra tests now pass.
+  - I have (briefly) tested this release on Debian 7.1
+    with Perl 5.8.8, 5.14.2, and 5.18.1.
+  - Please note that there are currently only tests for
+    basepods and faqpods. My current plan is add tests for
+    all other programs and modules in the next release.
+  - This is the first release where I used Dist::Zilla to
+    create the release. A special thanks to David Golden
+    for bundling some many useful Dist::Zilla plugins
+    together (Dist::Zilla::PluginBundle::DAGOLDEN).
+  - All programs and modules now 'use strict' and
+    'use warnings' (part of "Kwalitee").
+  - Licensing information is now in the LICENSE section
+    for programs and modules (part of "Kwalitee').
+  - There are now LICENSE, MYMETA.json, META.yml, and
+    MYMETA.yml files (part of "Kwalitee").
+  - Programs are now in the standard location 'bin'.
+  - Devel::Loaded is now in the standard location
+    lib/Devel/Loaded.pm.
+  - There is now a 'pmtools' module (lib/pmtools.pm).
+  - 'pmtools' is now the source of the version number for
+    all other programs and modules in pmtools. This should
+    satisfy dsteinbrunner's pull request of April 27, 2013.
+  - 'pminclude' lists the directories in @INC. This
+    replaces the poorly-named 'pmdirs' program.
+  - Documentation for Devel::Loaded has been fixed. This
+    should satisfy neilbowers' pull request of December 21,
+    2012 and neilbowers' pull request of July 16, 2013.
+  - I've fixed some permissions and such that should satisfy
+    dolmen's pull request of December 25, 2012.
+  - INTERNAL DETAIL: This version was developed on a
+    separate branch rather than 'master' (some Git
+    goodness).
+
+
 v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
   - Moved to Git for source control.
   - Added the GitHub repo
