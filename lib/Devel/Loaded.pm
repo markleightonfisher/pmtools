@@ -2,15 +2,13 @@
 package Devel::Loaded;
 
 # ABSTRACT: pmtools - Perl Module Tools
-# VERSION: 1.30
 
 # ------ pragmas
 use strict;
 use warnings;
 use File::Spec;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ----- define variable
 my $path  = undef;	# current module path

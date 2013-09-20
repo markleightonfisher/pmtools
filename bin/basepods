@@ -4,10 +4,9 @@
 # ------ pragmas
 use strict;
 use warnings;
-use pmtools;
 use Config;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ------ define variable
 my $lib = undef;	# standard POD library directory

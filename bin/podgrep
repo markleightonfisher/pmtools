@@ -5,9 +5,8 @@
 use strict;
 use warnings;
 use Getopt::Std  qw(getopts);
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ------ define variables
 my $chunk        = undef;	# chunk count
@@ -151,7 +150,7 @@ and to keep printing podagraphs until the next header is found.
     $ podgrep -hpfi "lock" `faqpods`
 
     (prints out all podagraphs with "lock" in the headers
-    case-insensitively, then then formats these with pod2text, then
+    case-insensitively, then formats these with pod2text, then
     shows them in the pager with matches high-lighted)
 
     $ podgrep -fh seek `podpath perlfunc`

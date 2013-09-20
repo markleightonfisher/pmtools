@@ -6,9 +6,8 @@
 # ------ pragmas
 use strict;
 use warnings;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ------ define variable
 my @options = ();	# list of podgrep options
@@ -27,7 +26,7 @@ __END__
 
 =head1 NAME
 
-pfgrep - grep out function definitions from perlfunc 
+pfcat - grep out function definitions from perlfunc 
 
 =head1 DESCRIPTION
 

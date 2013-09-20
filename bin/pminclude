@@ -3,9 +3,8 @@
 
 use strict;
 use warnings;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 BEGIN { $^W = 1 }
 

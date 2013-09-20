@@ -6,7 +6,6 @@ use warnings;
 use File::Find	qw(find);
 use Getopt::Std	qw(getopts);
 use Carp;
-use pmtools;
 
 use vars (
     q!$opt_v!,		# give debug info
@@ -15,7 +14,7 @@ use vars (
     q!$opt_s!,		# sort output within each directory
 );
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 $| = 1;
 

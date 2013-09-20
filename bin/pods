@@ -6,9 +6,8 @@
 
 use strict;
 use warnings;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 system $^X, "-S", "stdpods";
 system $^X, "-S", "pminst", "-l";

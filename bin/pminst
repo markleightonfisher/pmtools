@@ -4,9 +4,8 @@
 # ------ pragmas
 use strict;
 use warnings;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ------ define variables
 my $pattern = undef;	# module name pattern
@@ -85,7 +84,7 @@ pminst [B<-s>] [B<-l>] [I<pattern>]
 
 =head1 DESCRIPTION
 
-Without argumnets, show the names of all installed modules.  Given a
+Without arguments, show the names of all installed modules.  Given a
 pattern, show all module names that match it.  The B<-l> flag will show
 the full pathname.  The B<-s> flag will separate the base directory from
 @INC from the module portion itself.

@@ -4,9 +4,8 @@
 # ------ pragmas
 use strict;
 use warnings;
-use pmtools;
 
-our $VERSION = $pmtools::VERSION;
+our $VERSION = '1.50';
 
 # ------ define variables
 my $errors  = 0;	# error count
@@ -73,7 +72,7 @@ be printed.  Not all modules define version numbers, however.
     $ pmvers Devel::Loaded
     pmvers: unknown version for module `Devel::Loaded'
 
-h=ead1 SEE ALSO
+=head1 SEE ALSO
 
 pmdesc(1),
 pmpath(1),

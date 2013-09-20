@@ -1,3 +1,17 @@
+v1.50  2013-09-20 17:00:33 EST  Mark Leighton Fisher
+  - This is the "Testing" release of pmtools! All of the
+    pmtools now have tests.
+  - Fixed so all programs and modules use a fixed value
+    (literal) for $VERSION. This seems to work better with
+    the CPAN toolchain. As I also updated all of the
+    version numbers, this will fix rt.cpan.org
+    "#88534: pmtools 1.40: Still has "1.30" in pmtools.pm"
+  - Fixed so all tests add the pmtools to the PATH, whether
+    or not the test actually needs it. This should fix
+    rt.cpan.org "#88780: test failure".
+  - Fixed pfcat documentation to always refer to "pfcat".
+  - Fixed rt.cpan.org "#85352: typo fixes".
+
 v1.40  2013-09-04 16:53:36 EST  Mark Leighton Fisher
   - This is the "Kwalitee" release of pmtools! All of the
     Test::Kwalitee and Test::Kwalitee::Extra tests now pass.
@@ -33,7 +47,6 @@ v1.40  2013-09-04 16:53:36 EST  Mark Leighton Fisher
   - INTERNAL DETAIL: This version was developed on a
     separate branch rather than 'master' (some Git
     goodness).
-
 
 v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
   - Moved to Git for source control.
