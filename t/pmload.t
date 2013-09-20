@@ -15,7 +15,5 @@ eval {
     $output = `bin/pmload Scalar::Util 2>&1`;
 };
 
-is($?,        0,
-	"pmload runs");
-like($output, qr/Exporter.pm.*strict.pm.*Util.pm/ms,
-	"described a module");
+is($?,        0,               "pmload runs");
+like($output, qr/strict.pm/ms, "listed loaded module");
