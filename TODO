@@ -7,3 +7,5 @@ In no particular order, here are some of my goals for pmtools:
 * Solicit other ideas from Perl community members.
 * Fix podgrep -i so it actually works again.
 * Fix pmfunc so it actually works again.
+* Make tests more robust on older Perls. 5.18.1 works fine
+  on *my* PC...
