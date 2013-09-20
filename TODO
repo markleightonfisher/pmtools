@@ -9,3 +9,5 @@ In no particular order, here are some of my goals for pmtools:
 * Fix pmfunc so it actually works again.
 * Make tests more robust on older Perls. 5.18.1 works fine
   on *my* PC...
+* Add tests for modules.
+* Remove Makefile.lame.
