@@ -8,6 +8,9 @@ use Test::More tests => 3;
 # ------ define variable
 my $output = undef;	# output from basepods
 
+# ------ add pmtools to PATH for testing, so we use the current pmtools
+$ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
+
 eval {
     $output = `bin/basepods 2>&1`;
 };
