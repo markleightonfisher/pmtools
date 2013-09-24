@@ -12,8 +12,8 @@ my $output = undef;	# output from pman
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pman Tie::Hash 2>&1`;
+    $output = `bin/pman Carp 2>&1`;
 };
 
-is($?,        256,                                               "pman runs");
-like($output, qr/NAME.*Tie.*Hash - \w.*SYNOPSIS.*DESCRIPTION/ms, "found Tie::Hash");
+is($?,        256,                                          "pman runs");
+like($output, qr/NAME.*Carp - \w.*SYNOPSIS.*DESCRIPTION/ms, "found Carp");

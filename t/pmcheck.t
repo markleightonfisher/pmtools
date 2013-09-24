@@ -3,7 +3,7 @@
 # ------ pragmas
 use strict;
 use warnings;
-use Test::More tests => 1;
+use Test::More tests => 2;
 
 # ------ define variable
 my $output = undef;	# output from pmcheck
@@ -15,4 +15,5 @@ eval {
     $output = `bin/pmcheck 2>&1`;
 };
 
-is($?, 0, "pmcheck runs");
+isnt($?,             127,  "pmcheck runs");
+is(defined($output), 1,    "pmcheck had output");

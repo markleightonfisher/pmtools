@@ -12,8 +12,8 @@ my $output = undef;	# output from pmdesc
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmdesc Tie::Hash 2>&1`;
+    $output = `bin/pmdesc Carp 2>&1`;
 };
 
-is($?,        0,                               "pmdesc runs");
-like($output, qr/Tie::Hash \(\d+\.\d+\) - \w/, "described a module");
+is($?,        0,                          "pmdesc runs");
+like($output, qr/Carp \(\d+\.\d+\) - \w/, "described a module");
