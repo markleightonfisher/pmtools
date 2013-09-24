@@ -12,8 +12,8 @@ my $output = undef;	# output from pmcat
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmcat Tie::Hash 2>&1`;
+    $output = `bin/pmcat Carp 2>&1`;
 };
 
-is($?,        0,                                       "pmcat runs");
-like($output, qr/.*package Tie\:\:Hash\;.*\=head1 SYNOPSIS/ms, "catted Tie::Hash");
+is($?,        0,                                        "pmcat runs");
+like($output, qr/.*package Carp\;.*\=head1 SYNOPSIS/ms, "catted Carp");
