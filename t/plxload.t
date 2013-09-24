@@ -18,5 +18,5 @@ eval {
 is($output, "", "modules loaded");
 
 # TODO: Add tests after I get plxload working again
-#is($?,        0,                  "plxload runs");
-#like($output, qr/Scalar.Util.pm/, "listed loaded modules");
+#is($?,        0,                "plxload runs");
+#like($output, qr/Tie.*Hash.pm/, "listed loaded modules");

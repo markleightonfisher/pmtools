@@ -12,10 +12,8 @@ my $output = undef;	# output from pmexp
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmexp Scalar::Util 2>&1`;
+    $output = `bin/pmexp Carp 2>&1`;
 };
 
-is($?,        0,
-	"pmexp runs");
-like($output, qr/Scalar::Util optionally exports blessed/,
-	"described module exports");
+is($?,        0,                                      "pmexp runs");
+like($output, qr/Carp automatically exports confess/, "listed module exports");

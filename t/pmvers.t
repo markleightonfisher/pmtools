@@ -12,8 +12,8 @@ my $output = undef;	# output from pmvers
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmvers Scalar::Util 2>&1`;
+    $output = `bin/pmvers Tie::Hash 2>&1`;
 };
 
-is($?, 0, "pmvers runs");
-like($output, qr/^\d+\.\d/, "found version of Scalar::Util");
+is($?,        0,            "pmvers runs");
+like($output, qr/^\d+\.\d/, "found version of Tie::Hash");

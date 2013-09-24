@@ -16,4 +16,4 @@ eval {
 };
 
 is($?, 0, "stdpods runs");
-like($output, qr/Scalar.*Util.pm/, "found Scalar::Util");
+like($output, qr/Tie.*Hash.pm/, "found Tie::Hash");

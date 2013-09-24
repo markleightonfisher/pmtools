@@ -12,9 +12,8 @@ my $output = undef;	# output from pmall
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmall 2>&1`;
+    $output = `bin/pmall | t/head.pl 2>&1`;
 };
 
-is($?,        0,                  "pmall runs");
-like($output, qr/Scalar::Util \(\d+\.\d+\) - A selection of general-utility scalar subroutines/,
-	"synopsized all modules");
+is($?,        0,                               "pmall runs");
+like($output, qr/^\w+.* \(\d+\.\d+\) - \w+/ms, "synopsized all modules");

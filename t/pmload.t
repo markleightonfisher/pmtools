@@ -12,8 +12,8 @@ my $output = undef;	# output from pmload
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmload Scalar::Util 2>&1`;
+    $output = `bin/pmload Tie::Hash 2>&1`;
 };
 
 is($?,        0,               "pmload runs");
-like($output, qr/strict.pm/ms, "listed loaded module");
+like($output, qr/strict.pm/ms, "listed loaded modules");

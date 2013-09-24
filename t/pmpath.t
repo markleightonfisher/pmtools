@@ -12,8 +12,8 @@ my $output = undef;	# output from pmpath
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/pmpath Scalar::Util 2>&1`;
+    $output = `bin/pmpath Tie::Hash 2>&1`;
 };
 
 is($?, 0, "pmpath runs");
-like($output, qr/Scalar.*Util.pm/, "found Scalar::Util");
+like($output, qr/Tie.*Hash.pm/, "found Tie::Hash");

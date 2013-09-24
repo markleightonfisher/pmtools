@@ -12,7 +12,7 @@ my $output = undef;	# output from sitepods
 $ENV{"PATH"} = 'blib/script:' . $ENV{"PATH"};
 
 eval {
-    $output = `bin/sitepods Scalar::Util 2>&1`;
+    $output = `bin/sitepods 2>&1`;
 };
 
 is($?, 0, "sitepods runs");

@@ -16,4 +16,4 @@ eval {
 };
 
 is($?,        0,                  "modpods runs");
-like($output, qr/Scalar.Util.pm/, "found Scalar/Util.pm");
+like($output, qr/Tie.*Hash.pm/, "found Tie::Hash");
