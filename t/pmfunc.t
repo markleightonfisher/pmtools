@@ -15,8 +15,8 @@ eval {
     $output = `bin/pmfunc Cwd::getcwd 2>&1`;
 };
 
-is($?,        256,
-	"pmfunc runs");
-# TODO: all tests after I get pmfunc working again
+isnt($?, 127, "pmfunc runs");
+
+# TODO: add tests after I get pmfunc working again
 # like($output, qr/blessed.*dualvar.*isdual.*isvstring.*isweak/ms,
 # 	"list function body");
