@@ -16,4 +16,4 @@ eval {
 };
 
 is($?,        256,                                          "pman runs");
-like($output, qr/NAME.*Carp - \w.*SYNOPSIS.*DESCRIPTION/ms, "found Carp");
+like($output, qr/NAME.*[Cc]arp - \w.*SYNOPSIS.*DESCRIPTION/ms, "found Carp");
