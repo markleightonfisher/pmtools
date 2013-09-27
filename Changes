@@ -1,3 +1,23 @@
+v1.51  2013-09-27 06:19:01 EST  Mark Leighton Fisher
+  - NOTE: These are all fixes in the tests.
+  - Fixed rt.cpan.org 88843, "t/pmall.t takes a long time" by using
+    a head(1) clone (t/head.pl) to grab just the first 100 lines
+    of pmall output, then matching against the general form of
+    pmall output rather than specifically looking for Scalar::Util.
+  - Fixed the tests to use Tie::Hash (pure Perl) instead of
+    Scalar::Util, as there may or may not be a ...Scalar/Util.pm
+    depending on how Perl was packaged and installed (Scalar::Util
+    can exist as a pure Perl module and (more powerfully) as a mix
+    of Perl and XS).
+  - Fixed t/pmfunc.t and t/pmcheck.t to just check $? != 127 (i.e.
+    the program ran in some way) rather than looking for a specific
+    exit code. pmfunc does not work again yet, and pmcheck may or
+    may not return an error depending whether your Perl configuration
+    is correct.
+  - Fixed t/pman.t, t/pmcat.t, and t/pmdesc.t to use the Carp module
+    because Carp always has POD (Tie::Hash may not depending on
+    the Perl version, and see above for Scalar::Util problems).
+    
 v1.50  2013-09-20 17:00:33 EST  Mark Leighton Fisher
   - This is the "Testing" release of pmtools! All of the
     pmtools now have tests.
