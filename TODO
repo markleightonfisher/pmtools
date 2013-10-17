@@ -4,10 +4,12 @@ In no particular order, here are some of my goals for pmtools:
 * Investigate CPAN module manipulation packages for use
   in additional pmtools.
 * Add the "pmtools" command sent me by Matthew Persico.
-* Solicit other ideas from Perl community members.
 * Fix podgrep -i so it actually works again.
 * Fix pmfunc so it actually works again.
-* Make tests more robust on older Perls. 5.18.1 works fine
-  on *my* PC...
 * Add tests for modules.
 * Remove Makefile.lame.
+* Add support for running the programs under Windows.
+  Probably want to wrap them in batch files for maximum
+  portability.
+* Add tests for the modules.
+* Solicit other ideas from Perl community members.
