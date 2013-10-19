@@ -1,4 +1,17 @@
+v1.54  2013-10-19 14:21:26 EST  Mark Leighton Fisher
+
+  - Updated $VERSION in the modules and documented it too :)!
+
+v1.53  2013-10-18 17:31:35 EST  Mark Leighton Fisher
+
+  - Tried to update $VERSION in the modules.
+
+v1.52  2013-09-28 19:00:47 EST  Mark Leighton Fisher
+
+  - Updated $VERSION in the modules.
+
 v1.51  2013-09-27 06:19:01 EST  Mark Leighton Fisher
+
   - NOTE: These are all fixes in the tests.
   - Fixed rt.cpan.org 88843, "t/pmall.t takes a long time" by using
     a head(1) clone (t/head.pl) to grab just the first 100 lines
@@ -19,6 +32,7 @@ v1.51  2013-09-27 06:19:01 EST  Mark Leighton Fisher
     the Perl version, and see above for Scalar::Util problems).
     
 v1.50  2013-09-20 17:00:33 EST  Mark Leighton Fisher
+
   - This is the "Testing" release of pmtools! All of the
     pmtools now have tests.
   - Fixed so all programs and modules use a fixed value
@@ -33,6 +47,7 @@ v1.50  2013-09-20 17:00:33 EST  Mark Leighton Fisher
   - Fixed rt.cpan.org "#85352: typo fixes".
 
 v1.40  2013-09-04 16:53:36 EST  Mark Leighton Fisher
+
   - This is the "Kwalitee" release of pmtools! All of the
     Test::Kwalitee and Test::Kwalitee::Extra tests now pass.
   - I have (briefly) tested this release on Debian 7.1
@@ -69,6 +84,7 @@ v1.40  2013-09-04 16:53:36 EST  Mark Leighton Fisher
     goodness).
 
 v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
+
   - Moved to Git for source control.
   - Added the GitHub repo
     https://github.com/markleightonfisher/pmtools.
@@ -84,6 +100,7 @@ v1.30  2013-01-18 17:24:19 EST  Mark Leighton Fisher
     no Requestor on the ticket. :(
 
 v1.20  2012-12-07 15:25:50 EST  Mark Leighton Fisher
+
   - Patched pminst so only unique package names are printed.
     Thanks to Matthew Persico for the patch. (Honorable
     mention goes to Andrew Pam, but Matthew's patch is
@@ -96,12 +113,14 @@ v1.20  2012-12-07 15:25:50 EST  Mark Leighton Fisher
     existing, readable directory.
 
 v1.10  2008-01-18 06:57:21 EST  Mark Leighton Fisher
+
   - Added copyrights in my name as well as Tom Christiansen.
   - Changed to dual-license like Perl: GNU and Perl Artistic.
     This was at the request of the Fedora project, as they
     wanted a version of pmtools licensed under GNU.
 
 v1.01  2006-03-21 21:33:52 EST  Mark Leighton Fisher
+
   - Two sets of patches from Jose Pedro Oliveira:
     1. Added missing pmeth to Makefile.PL.
     2. "$mod" was partially renamed to "$module" in my copy; this
