@@ -2,9 +2,27 @@ package pmtools;
 
 use strict;
 use warnings;
-package pmtools;
 
-our $VERSION = '1.54';
+our $VERSION = '1.60';
+
+sub new_pod_iterator {
+    my ($dir, $module) = @_;
+
+    my $index = 0;
+    my @pod_dirs = (
+        "$dir/pod/$module.pod",
+        "$dir/$module.pod",
+        "$dir/$module.pm",
+    );
+
+    return sub {
+        if ($index >= scalar @pod_dirs) {
+            return undef;
+        }
+
+	return $pod_dirs[$index++];
+    };
+}
 
 1;
 

@@ -4,23 +4,31 @@
 # ------ pragmas
 use strict;
 use warnings;
+use FindBin qw($Bin);
+use Getopt::Long;
 
 our $VERSION = '1.50';
 
 # ------ define variables
-my $errors   = 0;	# error count
-my $fullpath = undef;	# full module path
-my $module   = undef;	# module name
-my $vers     = undef;	# module version
+my $errors;	# error count
+my $fullpath;	# full module path
+my $module;	# module name
+my $use_pod;	# use .pod instead of .pm file for systems with split POD/pm
+my $vers;	# module version
 
 BEGIN { $^W = 1 }
 
-use FindBin qw($Bin);
+GetOptions ("splitpod"  => \$use_pod); 
+print "use_pod = $use_pod\n";
 
 $errors = 0;
 
 MODULE: for $module (@ARGV) {
-    $fullpath = `$Bin/pmpath $module`;
+    if ($use_pod) {
+        $fullpath = `$Bin/podpath $module`;
+    } else {
+        $fullpath = `$Bin/pmpath $module`;
+    }
     if ($?) {
 	$errors++;
 	next;

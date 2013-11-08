@@ -4,21 +4,19 @@
 # ------ pragmas
 use strict;
 use warnings;
+use pmtools;
 
 our $VERSION = '1.50';
 
 # ------ define variables
-my $errors = 0;		# error count
-my $module = undef;	# module name
-my $pager  = undef;	# $ENV{PAGER} - pager program
-my $path   = undef;	# path for pod2text
+my $module;	# module name
+my $pager;	# $ENV{PAGER} - pager program
+my $path;	# path for pod2text
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module ...\n" unless @ARGV }
 
 use FindBin qw($Bin);
-
-$errors = 0;
 
 unless ($pager = $ENV{PAGER}) {
     require Config;
@@ -26,17 +24,31 @@ unless ($pager = $ENV{PAGER}) {
 } 
 
 for $module (@ARGV) { 
-    my $path =  `$Bin/pmpath $module`;
-    if ($?) {
-	$errors++;
+    $module =~ s#::#/#gmsx;
+    my $found = 0;
+    foreach my $dir (@INC) {
+    	my $iter = pmtools::new_pod_iterator($dir, $module);
+	while (my $pod = $iter->()) {
+            if (-s $pod) {
+                $path = $pod;
+                $found++;
+                last;
+            }
+        }
+
+        if ($found) {
+            last;
+        }
+    }
+
+
+    if (!$found) {
 	next;
     } 
-    chomp $path;
     system "pod2text $path | $pager";
-    $errors += ($? != 1);
 }
 
-exit($errors != 0);
+exit(0);
 
 __END__
 

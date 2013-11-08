@@ -1,3 +1,8 @@
+v1.60  2013-10-19 14:21:26 EST  Mark Leighton Fisher
+
+  - Modified x to handle when the Pod is split from the Perl
+    like in the upcoming Debian 8.
+
 v1.54  2013-10-19 14:21:26 EST  Mark Leighton Fisher
 
   - Updated $VERSION in the modules and documented it too :)!

@@ -1,17 +1,25 @@
 #!/usr/bin/env perl
-# podpath - print the path to the pod
+# podpath - print the path to the Pod
 
 # ------ pragmas
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '1.60';
 
-for (@ARGV) {
-    if ( /^perl/ ) {
-	system("$^X -S stdpods | grep $_");
+for my $arg (@ARGV) {
+    if ( $arg =~ /^perl/ ) {
+	system("$^X -S stdpods | grep $arg");
     } else {
-	system("$^X -S pmpath $_");
+	$arg =~ s#::#/#gmsx;
+        foreach my $dir (@INC) {
+            foreach my $pod_file ("$dir/$arg.pod", "$dir/$arg.pm") {
+                if (-s $pod_file) {
+                    print "$pod_file\n";
+                    last;
+                }
+            }
+        }
     } 
 } 
 
@@ -19,13 +27,15 @@ __END__
 
 =head1 NAME
 
-podpath - print the path to the pod
+podpath - print the path to the Pod
 
 =head1 DESCRIPTION
 
-This is just a front-end that calls either I<stdpods>
-or I<pmpath> depending on what it looks like.  It works
-on both regular the standard podpages and the module ones.
+podpath prints the path to the Pod. podpath calls stdpods underneath
+if the Pod name includes 'perl'. Otherwise, it searches down
+@INC, printing the '.pod' filename if there is a separate Pod
+file, otherwise printing the 'pm' filename. This accommodates
+systems where the Pod lives in a separate file from the module file.
 
 =head1 EXAMPLES
 
