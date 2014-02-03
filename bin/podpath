@@ -4,19 +4,21 @@
 # ------ pragmas
 use strict;
 use warnings;
+use pmtools;
 
-our $VERSION = '1.60';
+our $VERSION = '2.0';
 
-for my $arg (@ARGV) {
-    if ( $arg =~ /^perl/ ) {
-	system("$^X -S stdpods | grep $arg");
+for my $module (@ARGV) {
+    if ( $module =~ /^perl/ ) {
+	     system("$^X -S stdpods | grep $module");
     } else {
-	$arg =~ s#::#/#gmsx;
-        foreach my $dir (@INC) {
-            foreach my $pod_file ("$dir/$arg.pod", "$dir/$arg.pm") {
+	    $module =~ s#::#/#gmsx;
+INC:    foreach my $inc (@INC) {
+            my $pod_iter = pmtools::new_pod_iterator($inc, $module);
+            while (my $pod_file = $pod_iter->()) {
                 if (-s $pod_file) {
                     print "$pod_file\n";
-                    last;
+                    last INC;
                 }
             }
         }

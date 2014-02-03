@@ -1,7 +1,15 @@
-v1.60  2013-10-19 14:21:26 EST  Mark Leighton Fisher
+v2.0.0  2014-02-03 17:59:29 EST  Mark Leighton Fisher
 
-  - Modified x to handle when the Pod is split from the Perl
-    like in the upcoming Debian 8.
+  - Bumped version to v2.00, because of the major architectural
+    change -- the 'pmtools' module now contains the routine
+    new_pod_iterator(), which creates an iterator for all of
+    the variants of a POD's name ('LIB/MODULE.pm',
+    'LIB/MODULE.pod', and 'LIB/pod/MODULE.pod'). This change
+    supports the use case of when the POD is separate from its
+    corresponding Perl module file (inspired by an upcoming
+    Debian release).
+  - Fixed pman and podpath to use new_pod_iterator().
+  - Switched to the more-standard 3-number versioning scheme.
 
 v1.54  2013-10-19 14:21:26 EST  Mark Leighton Fisher
 

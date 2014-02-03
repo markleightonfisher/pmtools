@@ -9,7 +9,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 system("$^X -S basepods");
 open(PROG, "$^X -S modpods |") || die "can't fork: $!";

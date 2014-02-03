@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Getopt::Std  qw(getopts);
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
 my $chunk        = undef;	# chunk count

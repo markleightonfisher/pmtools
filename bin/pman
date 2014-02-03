@@ -6,12 +6,12 @@ use strict;
 use warnings;
 use pmtools;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
-my $module;	# module name
-my $pager;	# $ENV{PAGER} - pager program
-my $path;	# path for pod2text
+my $module;     # module name
+my $pager;      # $ENV{PAGER} - pager program
+my $path;       # path for pod2text
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module ...\n" unless @ARGV }
@@ -26,24 +26,20 @@ unless ($pager = $ENV{PAGER}) {
 for $module (@ARGV) { 
     $module =~ s#::#/#gmsx;
     my $found = 0;
+INC:
     foreach my $dir (@INC) {
-    	my $iter = pmtools::new_pod_iterator($dir, $module);
-	while (my $pod = $iter->()) {
+        my $iter = pmtools::new_pod_iterator($dir, $module);
+        while (my $pod = $iter->()) {
             if (-s $pod) {
                 $path = $pod;
                 $found++;
-                last;
+                last INC;
             }
         }
-
-        if ($found) {
-            last;
-        }
     }
-
-
+    
     if (!$found) {
-	next;
+        next;
     } 
     system "pod2text $path | $pager";
 }

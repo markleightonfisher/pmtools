@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Config;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variable
 my $lib = undef;	# standard POD library directory

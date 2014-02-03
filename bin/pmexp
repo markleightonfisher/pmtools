@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
 my $errors   = 0;	# error count

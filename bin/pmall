@@ -14,7 +14,7 @@ use vars (
     q!$opt_s!,		# sort output within each directory
 );
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 $| = 1;
 

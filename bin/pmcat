@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
 my $pager = undef;	# $ENV{PAGER} - output paging program

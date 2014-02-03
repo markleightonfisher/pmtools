@@ -8,7 +8,7 @@ use strict;
 use warnings;
 use File::Spec;
 
-our $VERSION = '1.60';
+our $VERSION = '2.0';
 
 # ----- define variable
 my $path  = undef;	# current module path

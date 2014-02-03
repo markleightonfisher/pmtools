@@ -3,7 +3,7 @@ package pmtools;
 use strict;
 use warnings;
 
-our $VERSION = '1.60';
+our $VERSION = '2.0';
 
 sub new_pod_iterator {
     my ($dir, $module) = @_;

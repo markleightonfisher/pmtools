@@ -7,7 +7,7 @@ use warnings;
 use FindBin qw($Bin);
 use Getopt::Long;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
 my $errors;	# error count

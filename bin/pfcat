@@ -7,7 +7,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variable
 my @options = ();	# list of podgrep options
