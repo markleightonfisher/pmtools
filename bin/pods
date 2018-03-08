@@ -6,11 +6,12 @@
 
 use strict;
 use warnings;
+use FindBin qw($Bin);
 
 our $VERSION = '2.0.0';
 
-system $^X, "-S", "stdpods";
-system $^X, "-S", "pminst", "-l";
+system $^X, "-S", "$Bin/stdpods";
+system $^X, "-S", "$Bin/pminst", "-l";
 
 __END__
 
