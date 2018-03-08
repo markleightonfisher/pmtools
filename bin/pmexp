@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 # ------ define variables
 my $errors   = 0;	# error count
@@ -98,7 +98,7 @@ pmeth(1), perlmod(1), Exporter(3).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

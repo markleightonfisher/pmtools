@@ -5,7 +5,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 # ------ define variables
 my $module = undef;	# module name
@@ -124,7 +124,7 @@ Devel::Loaded, plxload(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

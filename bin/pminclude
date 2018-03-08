@@ -4,7 +4,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 BEGIN { $^W = 1 }
 
@@ -43,7 +43,7 @@ pmls(1), pmpath(1)
 
 =head1 AUTHORS and COPYRIGHTS
 
-Copyright (C) 2013 Mark Leighton Fisher.
+Copyright (C) 2013-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

@@ -2,9 +2,33 @@ package pmtools;
 
 use strict;
 use warnings;
-package pmtools;
 
-our $VERSION = '1.54';
+our $VERSION = '2.0.0';
+
+sub new_pod_iterator {
+    my ($module) = @_;      # module name
+
+    my $index     = 0;      # index of all possible POD files
+    my $inc_index = 0;      # index into @INC
+    my $pod_index = 0;      # index into @pods
+    my @pods  = (           # list of possible POD files given an @INC directory
+        "pod/$module.pod",
+        "$module.pod",
+        "$module.pm",
+    );
+
+    return sub {
+        if ($index >= scalar @INC * scalar @pods) {
+            return undef;
+        }
+
+        $inc_index = $index / scalar @pods;
+        $pod_index = $index % scalar @pods;
+        $index++;
+
+	    return "$INC[$inc_index]/$pods[$pod_index]";
+    };
+}
 
 1;
 
@@ -62,7 +86,7 @@ pmcat(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

@@ -5,14 +5,14 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0';
 
 # ------ define variables
-my $errors   = 0;	# error count
-my $file     = undef;	# module file path
-my $function = undef;	# function name
-my $module   = undef;	# module name
-my $ok       = undef;	# OK count
+my $errors   = 0;        # error count
+my $file     = undef;        # module file path
+my $function = undef;        # function name
+my $module   = undef;        # module name
+my $ok       = undef;        # OK count
 
 BEGIN { $^W = 1 }
 BEGIN { die "usage: $0 module ...\n" unless @ARGV }
@@ -23,17 +23,22 @@ $errors = 0;
 
 for my $arg (@ARGV) { 
     ($module, $function) = $arg =~ /(\w.*)::(\w+)$/;
+    if (!defined($module)) {
+        print STDERR "Sorry, '$arg' is not the name of a function in a module.\n";
+        next;
+    }
+
     $file = `$^X -S $Bin/pmpath $module`;
     if ($?) {
-	$errors++;
-	next;
+        $errors++;
+        next;
     } 
     chomp $file;
 
     system $^X, '-ne', 
-	'$ok++,print if /^sub\s+' . $function . '\b/ .. /^}\s*$/;' 
-	. ' END { $? = ($ok == 0) }',
-	$file;
+       '$ok++,print if /^sub\s+' . $function . '\b/ .. /^}\s*$/;' 
+        . ' END { $? = ($ok == 0) }',
+        $file;
 
     $errors++ if $?;
 }
@@ -57,7 +62,7 @@ that function.
     $ pmfunc Cwd::getcwd
     sub getcwd
     {
-	abs_path('.');
+        abs_path('.');
     }
 
 =head1 RESTRICTIONS
@@ -81,7 +86,7 @@ or
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

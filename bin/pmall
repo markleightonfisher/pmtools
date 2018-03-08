@@ -14,7 +14,7 @@ use vars (
     q!$opt_s!,		# sort output within each directory
 );
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 $| = 1;
 
@@ -224,7 +224,7 @@ pmvers(1)
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

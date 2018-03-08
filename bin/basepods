@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use Config;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 # ------ define variable
 my $lib = undef;	# standard POD library directory
@@ -57,7 +57,7 @@ faqpods(1), modpods(1), pods(1), sitepod(1), podpath(1), and stdpod(1).
 =head1 AUTHORS and COPYRIGHTS
 
 Copyright (C) 1999 Tom Christiansen.
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

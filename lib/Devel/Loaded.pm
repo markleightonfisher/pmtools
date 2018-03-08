@@ -8,7 +8,7 @@ use strict;
 use warnings;
 use File::Spec;
 
-our $VERSION = '1.54';
+our $VERSION = '2.0.0';
 
 # ----- define variable
 my $path  = undef;	# current module path
@@ -91,7 +91,7 @@ Perl modules for getting dependency information (26 of them at the time of writi
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 

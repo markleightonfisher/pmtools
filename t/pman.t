@@ -15,5 +15,6 @@ eval {
     $output = `bin/pman Carp 2>&1`;
 };
 
-is($?,        256,                                          "pman runs");
-like($output, qr/NAME.*[Cc]arp - \w.*SYNOPSIS.*DESCRIPTION/ms, "found Carp");
+is($?, 0, 'pman runs');
+
+like($output, qr/NAME.*[Cc]arp - \w.*SYNOPSIS.*DESCRIPTION/ms, 'found Carp');

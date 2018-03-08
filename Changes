@@ -1,3 +1,20 @@
+v2.0.0  2014-02-03 17:59:29 EST  Mark Leighton Fisher
+
+  - Bumped version to v2.0.0 because of the major architectural
+    change -- the 'pmtools' module now contains the routine
+    new_pod_iterator(), which creates an iterator over @INC for
+    all of the variants of a POD's name ('LIB/MODULE.pm',
+    'LIB/MODULE.pod', and 'LIB/pod/MODULE.pod').  This change
+    is for when the POD is separate from its corresponding Perl
+    module file (and is inspired by an upcoming Debian release).
+  - Fixed pman and podpath to use new_pod_iterator(). This
+    should fix rt.cpan.org #89006: "Carp has no POD on my
+    5.18.1 installation -> still test suite failures with
+    1.51".
+  - Switched to the somewhat-more-standard 3-number versioning
+    scheme.
+  - Removed the increasingly-obsolete 'Makefile.lame'.
+
 v1.54  2013-10-19 14:21:26 EST  Mark Leighton Fisher
 
   - Updated $VERSION in the modules and documented it too :)!

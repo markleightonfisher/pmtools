@@ -9,7 +9,7 @@
 use strict;
 use warnings;
 
-our $VERSION = '1.50';
+our $VERSION = '2.0.0';
 
 open(PROG, "$^X -S modpods |") || die "can't fork: $!";
 
@@ -47,7 +47,7 @@ faqpods(1), modpods(1), pods(1), podpath(1), and stdpod(1).
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2013 Mark Leighton Fisher.
+Copyright (C) 2006-2014 Mark Leighton Fisher.
 
 =head1 LICENSE
 
