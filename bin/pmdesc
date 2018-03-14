@@ -87,8 +87,8 @@ pmdesc - print out version and whatis description of perl modules
 =head1 DESCRIPTION
 
 Given one or more module names, show the version number (if known)
-and the `whatis' line, that is, the NAME section's description,
-typically used for generation whatis databases.
+and the 'whatis' line, that is, the NAME section's description,
+typically used for generation of whatis databases.
 
 =head1 EXAMPLES
 
@@ -118,7 +118,7 @@ pmvers(1)
 
 Copyright (C) 1999 Tom Christiansen.
 
-Copyright (C) 2006-2018 Mark Leighton Fisher.
+Copyright (C) 2006-2014, 2018 Mark Leighton Fisher.
 
 =head1 LICENSE
 
