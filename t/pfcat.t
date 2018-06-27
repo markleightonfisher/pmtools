@@ -15,5 +15,5 @@ eval {
     $output = `bin/pfcat seek 2>&1`;
 };
 
-is($?,        0,                                                     "pfcat runs");
-like($output, qr/There is no .*systell.* function.\s+Use .*sysseek/, "catted module function");
+is($?,        0,                                                       "pfcat runs");
+like($output, qr/There is no .*systell.* function.\s+Use\s+.*sysseek/, "catted module function");
